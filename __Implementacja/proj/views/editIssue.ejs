@@ -1,0 +1,57 @@
+<%- include('index'); %>
+
+<h2>Edytuj issue</h2>
+<form action="/editIssue?id=<%= id %>" method="POST">
+    <div>
+        <label for="projectName">Project Name</label>
+        <select name="projectName" id="projectName">
+            <option value="<%= projectName %>"><%= projectName %></option>
+            <% projects.forEach(function(project){ %>
+                <% if (project.projectName != projectName){ %>
+                    <option value="<%= project.projectName %>"><%= project.projectName %></option>
+                <% } %>
+            <% }); %>
+        </select>
+    </div>
+    <div>
+        <label for="issueName">Issue Name</label>
+        <input type="text" id="issueName" name="issueName" value="<%= issueName %>" required>
+    </div>
+    <div>
+        <input type="radio" id="Open"
+        name="issueStatus" value="Open"
+        <% if (issueStatus == "Open"){ %> 
+            checked
+        <% } %>
+        >
+        <label for="Open">Open</label>
+  
+        <input type="radio" id="In Progress"
+         name="issueStatus" value="In Progress"
+         <% if (issueStatus == "In Progress"){ %> 
+             checked
+         <% } %>
+         >
+        <label for="In Progress">In Progress</label>
+  
+        <input type="radio" id="Closed"
+         name="issueStatus" value="Closed"
+         <% if (issueStatus == "Closed"){ %> 
+             checked
+         <% } %>
+         >
+        <label for="Closed">Closed</label>
+    </div>
+    <div>
+        <label for="issueNickname">Assignee</label>
+        <select name="issueNickname" id="issueNickname">
+            <option value="<%= issueNickname %>"><%= issueNickname %></option>
+            <% users.forEach(function(user){ %>
+                <% if (user.nickname != issueNickname){ %>
+                    <option value="<%= user.nickname %>"><%= user.nickname %></option>
+                <% } %>
+            <% }); %>
+        </select>
+    </div>
+    <button type="submit">Submit</button>
+</form>

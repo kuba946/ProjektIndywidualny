@@ -1,0 +1,33 @@
+<%- include('index'); %>
+
+<nav class="sub-menu1">
+  <ul>
+      <li><a href="/addUser">Add User</a></li>
+  </ul>
+</nav>
+
+<div>
+    <table class='table'>
+        <thead>
+            <tr>
+                <th>L.p.</th>
+                <th>Nickname</th>
+                <th>Role</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%var i = 1; users.forEach(function(user){ %>
+                <tr>
+                    <td><%= i %></td>
+                    <td><%= user.nickname %></td>
+                    <td><%= user.role %></td>
+                    <td>
+                        <a href="./deletingUser?id=<%= user._id %>">   DELETE   </a> &emsp;
+                        <a href="./editUser?id=<%= user._id %>">   EDIT   </a>
+                    </td>
+                </tr>
+            <% i++; }); %>
+        </tbody>
+    </table>
+</div>

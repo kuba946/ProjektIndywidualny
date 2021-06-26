@@ -1,0 +1,37 @@
+<%- include('index'); %>
+
+<h2>Edytuj user</h2>
+<form action="/editUser?id=<%= id %>" method="POST">
+    <div>
+        <label for="nickname">Nickname</label>
+        <input type="text" id="nickname" name="nickname" value="<%= userNickname %>" required>
+    </div>
+    <!-- <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+    </div> -->
+    <div>
+        <input type="radio" id="User"
+        name="role" value="User"
+        <% if (role == "User"){ %> 
+            checked
+        <% } %>
+        >
+        <label for="User">User</label>
+  
+        <input type="radio" id="Manager"
+        name="role" value="Manager"
+        <% if (role == "Manager"){ %> 
+            checked
+        <% } %>
+        <label for="Manager">Manager</label>
+  
+        <input type="radio" id="Admin"
+        name="role" value="Admin"
+        <% if (role == "Admin"){ %> 
+            checked
+        <% } %>
+        <label for="Admin">Admin</label>
+    </div>
+    <button type="submit">Submit</button>
+</form>

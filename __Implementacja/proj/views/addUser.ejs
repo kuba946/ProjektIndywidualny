@@ -1,0 +1,27 @@
+<%- include('index'); %>
+
+<h2>Dodaj usera</h2>
+<form action="/addUser" method="POST">
+    <div>
+        <label for="nickname">Nickname</label>
+        <input type="text" id="nickname" name="nickname" required>
+    </div>
+    <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+    </div>
+    <div>
+        <input type="radio" id="User"
+         name="role" value="User" checked>
+        <label for="User">User</label>
+  
+        <input type="radio" id="Manager"
+         name="role" value="Manager">
+        <label for="Manager">Manager</label>
+  
+        <input type="radio" id="Admin"
+         name="role" value="Admin">
+        <label for="Admin">Admin</label>
+    </div>
+    <button type="submit">Submit</button>
+</form>

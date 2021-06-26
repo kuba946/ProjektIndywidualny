@@ -1,0 +1,17 @@
+<h1>Zaloguj sie</h1>
+<% if (messages.error) { %>
+    <%= messages.error %>
+  <% } %>
+<form action="/login" method="POST">
+    <div>
+        <label for="nickname">Nickname</label>
+        <input type="text" id="nickname" name="nickname" required>
+    </div>
+    <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+    </div>
+    <button type="submit">Submit</button>
+</form>
+
+<a href="/">Strona Glowna</a>

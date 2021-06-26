@@ -1,0 +1,37 @@
+<%- include('index'); %>
+
+<nav class="sub-menu1">
+    <ul>
+        <li><a href="/addIssue">Add Issue</a></li>
+    </ul>
+</nav>
+
+<div>
+    <table class='table'>
+        <thead>
+            <tr>
+                <th>L.p.</th>
+                <th>Project Name</th>
+                <th>Issue Name</th>
+                <th>Status</th>
+                <th>Assignee</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%var i = 1; issues.forEach(function(issue){ %>
+                <tr>
+                    <td><%= i %></td>
+                    <td><%= issue.projectName %></td>
+                    <td><%= issue.issueName %></td>
+                    <td><%= issue.issueStatus %></td>
+                    <td><%= issue.issueNickname %></td>
+                    <td>
+                        <a href="./deletingIssue?id=<%= issue._id %>">   DELETE   </a> &emsp;
+                        <a href="./editIssue?id=<%= issue._id %>">   EDIT   </a>
+                    </td>
+                </tr>
+            <% i++; }); %>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,32 @@
+<%- include('index'); %>
+
+<nav class="sub-menu1">
+    <ul>
+        <li><a href="/addProject">Add Project</a></li>
+    </ul>
+</nav>
+
+<div>
+    <table class='table'>
+        <thead>
+            <tr>
+                <th>L.p.</th>
+                <th>Project Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%var i = 1; projects.forEach(function(project){ %>
+                <tr>
+                    <td><%= i %></td>
+                    <td><%= project.projectName %></td>
+                    <td>
+                        <a href="./deletingProject?id=<%= project._id %>">   DELETE   </a> &emsp;
+                        <a href="./editProject?id=<%= project._id %>">   EDIT   </a> &emsp;
+                        <a href="./showIssues?id=<%= project._id %>">   SHOW ISSUES   </a>
+                    </td>
+                </tr>
+            <% i++; }); %>
+        </tbody>
+    </table>
+</div>

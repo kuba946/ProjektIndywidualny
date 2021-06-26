@@ -1,0 +1,10 @@
+<%- include('index'); %>
+
+<h2>Dodaj project</h2>
+<form action="/addProject" method="POST">
+    <div>
+        <label for="projectName">Project Name</label>
+        <input type="text" id="projectName" name="projectName" required>
+    </div>
+    <button type="submit">Submit</button>
+</form>
